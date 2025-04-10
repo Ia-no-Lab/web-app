@@ -1,0 +1,6 @@
+[book]
+authors = ["arthurdev06"]
+language = "en"
+multilingual = false
+src = "src"
+title = "IA no Lab Documentation"
