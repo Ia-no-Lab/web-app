@@ -42,9 +42,9 @@ const App = () => {
             </div>
           </div>
         </div>
+      </main>
         <About />
         <Terms />
-      </main>
       <Footer />
     </div>
   );

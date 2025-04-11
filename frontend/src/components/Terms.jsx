@@ -3,12 +3,12 @@ import "./Terms.css";
 
 function Terms() {
   return (
-    <div>
-      <h1>Terms</h1>
+    <div className="bigBoxTerms">
+      <h1>Normas</h1>
       <p>
-        Ia no Lab é um website de código aberto feito por estudantes que visa
-        simplificar a ciência por meio do uso de Inteligência Artificial.
+        Ia no Lab é um website de código aberto, então o modo que usamos seus dados está mostrado de forma transparente. 
       </p>
+
     </div>
   );
 }

@@ -1,0 +1,18 @@
+.bigBoxAbout {
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bigBoxAbout h1 {
+  font-size: 30pt;
+  font-weight: bold;
+}
+
+.bigBoxAbout p {
+  font-size: 20pt;
+  margin: 15px;
+}
+
+

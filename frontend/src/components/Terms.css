@@ -1,0 +1,16 @@
+.bigBoxTerms {
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bigBoxTerms h1 {
+  font-size: 30pt;
+  font-weight: bold;
+}
+
+.bigBoxTerms p {
+  font-size: 20pt;
+  margin: 15px;
+}
