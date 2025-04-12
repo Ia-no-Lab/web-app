@@ -2,5 +2,7 @@
 
 - [Introdução](./introduction.md)
 - [Sobre](./about.md)
-- [Setup](./setup.md)
-
+- [Api](./api.md)
+  - [Modelos](./models.md)
+- [Contribuição](./contributing.md)
+- [Licença](./license.md)

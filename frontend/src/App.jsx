@@ -2,7 +2,8 @@ import React from "react";
 import "./App.css";
 import { About, Terms, SmallLogo, Header, Footer } from "./components/index";
 import { LuTestTubeDiagonal, LuChevronRight, LuBot } from "react-icons/lu";
-import { Button } from "./components/ui/button";
+import { Button } from "./components/index.js";
+import { Link } from "react-router-dom";
 
 const App = () => {
   return (
@@ -22,23 +23,29 @@ const App = () => {
             <div className="smallBox">
               <SmallLogo size={90} />
               <p>Descubra experiências com base em seus materiais</p>
-              <Button bg="#3c6b22ff" color="#f4f4f4">
-                <LuChevronRight /> Ir
-              </Button>
+              <Link to="/experiments">
+                <Button bg="#3c6b22ff" color="#f4f4f4">
+                  <LuChevronRight /> Ir
+                </Button>
+              </Link>
             </div>
             <div className="smallBox">
               <LuTestTubeDiagonal className="h-15 w-20 " color="#3c6b22ff" />
               <p>Navegue pela tabela periódica interativa</p>
-              <Button bg="#3c6b22ff" color="#f4f4f4">
-                <LuChevronRight /> Ir
-              </Button>
+              <Link to="/periodic-table">
+                <Button bg="#3c6b22ff" color="#f4f4f4">
+                  <LuChevronRight /> Ir
+                </Button>
+              </Link>
             </div>
             <div className="smallBox">
               <LuBot className="h-21 w-20" color="#3c6b22ff" />
               <p>Converse com a IA científica</p>
-              <Button bg="#3c6b22ff" color="#f4f4f4">
-                <LuChevronRight /> Ir
-              </Button>
+              <Link to="/chat">
+                <Button bg="#3c6b22ff" color="#f4f4f4">
+                  <LuChevronRight /> Ir
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
