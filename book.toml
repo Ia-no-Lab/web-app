@@ -1,0 +1,6 @@
+[book]
+authors = ["Arthur Rocha"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Documentação IA no Lab"
