@@ -1,12 +1,8 @@
-# Workflow para construir e publicar um site mdBook no GitHub Pages
 name: Deploy mdBook site to Pages
 
 on:
-  # Executa em push na branch principal
   push:
     branches: ["main"]
-
-  # Permite execução manual via aba Actions
   workflow_dispatch:
 
 permissions:
@@ -27,11 +23,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install mdBook
+      - name: Install mdBook and Mermaid plugin
         run: |
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
           cargo install --version ${MDBOOK_VERSION} mdbook
+          cargo install mdbook-mermaid
 
       - name: Setup Pages
         id: pages
