@@ -5,23 +5,24 @@ O frontend deste projeto é desenvolvido com React e TypeScript, utilizando o Rs
 ## Tecnologias Principais
 
 ```mermaid
-mindmap
-  root((Frontend))
-    React 19
-      Hooks
-      Componentes
-    TypeScript
-    TanStack Router
-    Tailwind CSS
-    Radix UI
-      Componentes acessíveis
-    Rspack
-      Bundler de alta performance
+    graph TD
+      root((Frontend))
+      root --> react[React 19]
+      react --> hooks[Hooks]
+      react --> comp[Componentes]
 
-  %% Aplicando a nova paleta de cores
-  %% Cores: fern-green (#3c6b22), eerie-black (#24201b), white (#f4f4f4), tea-green (#cbeaa6), pistachio (#c0d684)
+      root --> ts[TypeScript]
+      root --> router[TanStack Router]
+      root --> tailwind[Tailwind CSS]
 
-  style root fill:#3c6b22,stroke:#24201b,stroke-width:2px,color:#f4f4f4
+      root --> radix[Radix UI]
+      radix --> acessiveis[Componentes acessíveis]
+
+      root --> rspack[Rspack]
+      rspack --> bundler[Bundler de alta performance]
+
+      %% Estilo customizado para o nó principal
+      style root fill:#3c6b22,stroke:#24201b,stroke-width:2px,color:#f4f4f4
 ```
 
 ## Estrutura de Diretórios
@@ -107,28 +108,19 @@ flowchart LR
 ## Fluxo de Renderização
 
 ```mermaid
-sequenceDiagram
-    participant U as Usuário
-    participant R as Router
-    participant A as App.tsx
-    participant C as Componentes
-    participant P as Página Atual
+    sequenceDiagram
+        participant U as Usuário
+        participant R as Router
+        participant A as App.tsx
+        participant C as Componentes
+        participant P as Página Atual
 
-    U->>R: Navega para URL
-    R->>A: Determina rota ativa
-    A->>A: Verifica se é dashboard
-    A->>C: Renderiza Header/Footer (condicional)
-    A->>P: Renderiza página via Outlet
-    P->>U: Exibe conteúdo
-
-    %% Aplicando a nova paleta de cores
-    %% Cores: fern-green (#3c6b22), eerie-black (#24201b), white (#f4f4f4), tea-green (#cbeaa6), pistachio (#c0d684)
-
-    style U fill:#f4f4f4,stroke:#24201b,stroke-width:2px,color:#24201b
-    style R fill:#3c6b22,stroke:#24201b,stroke-width:2px,color:#f4f4f4
-    style A fill:#3c6b22,stroke:#24201b,stroke-width:2px,color:#f4f4f4
-    style C fill:#c0d684,stroke:#24201b,stroke-width:1px,color:#24201b
-    style P fill:#cbeaa6,stroke:#24201b,stroke-width:1px,color:#24201b
+        U->>R: Navega para URL
+        R->>A: Determina rota ativa
+        A->>A: Verifica se é dashboard
+        A->>C: Renderiza Header/Footer (condicional)
+        A->>P: Renderiza página via Outlet
+        P->>U: Exibe conteúdo
 ```
 
 ## Componentes UI

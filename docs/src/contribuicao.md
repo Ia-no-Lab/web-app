@@ -5,27 +5,15 @@ Este documento fornece diretrizes para contribuir com o projeto. Agradecemos seu
 ## Fluxo de Contribuição
 
 ```mermaid
-flowchart LR
-    A[Fork do Repositório] --> B[Criar Branch]
-    B --> C[Implementar Mudanças]
-    C --> D[Executar Testes]
-    D --> E[Enviar Pull Request]
-    E --> F{Code Review}
-    F -->|Aprovado| G[Merge]
-    F -->|Alterações Necessárias| C
+    flowchart LR
+        A[Fork do Repositório] --> B[Criar Branch]
+        B --> C[Implementar Mudanças]
+        C --> D[Executar Testes]
+        D --> E[Enviar Pull Request]
+        E --> F{Code Review}
+        F -->|Aprovado| G[Merge]
+        F -->|Alterações Necessárias| C
 
-    %% Aplicando a nova paleta de cores
-    %% Cores: fern-green (#3c6b22), eerie-black (#24201b), white (#f4f4f4), tea-green (#cbeaa6), pistachio (#c0d684)
-
-    classDef start fill:#3c6b22,stroke:#24201b,stroke-width:2px,color:#f4f4f4;
-    classDef process fill:#c0d684,stroke:#24201b,stroke-width:1px,color:#24201b;
-    classDef decision fill:#cbeaa6,stroke:#24201b,stroke-width:1px,color:#24201b;
-    classDef end fill:#3c6b22,stroke:#24201b,stroke-width:2px,color:#f4f4f4;
-
-    class A start;
-    class B,C,D,E process;
-    class F decision;
-    class G end;
 ```
 
 ## Ambiente de Desenvolvimento

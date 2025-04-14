@@ -1,4 +1,9 @@
 # Introdução
+<img src="./assets/big-logo.png" style="display: block; margin: 0 auto;" />
+
+<blockquote style="padding: 20px; text-align: center;">
+  Simplificando a ciência.
+</blockquote>
 
 Bem-vindo à documentação do Ia no Lab! Este documento fornece uma visão geral completa do projeto, sua arquitetura e como utilizá-lo.
 
