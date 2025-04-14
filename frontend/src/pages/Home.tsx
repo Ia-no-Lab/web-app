@@ -54,7 +54,7 @@ const Home = () => {
           <span className="underline decoration-fern-green decoration-30 underline-offset-4">
             Simplificando
           </span>{" "}
-          a ciência
+          a ciência.
         </h1>
         <p className="text-7xl font-black mt-2 text-neutral-600">
           feito por estudantes

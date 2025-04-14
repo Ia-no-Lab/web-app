@@ -12,7 +12,8 @@ import {
   Home,
   Experiment,
   PeriodicTable,
-  Auth
+  Auth,
+  Register 
 } from "@/src/pages";
 
 import VulcaoBicarbonato from "@/src/pages/experimentos/VulcaoBicarbonato";
@@ -48,6 +49,12 @@ const authRoute = createRoute({
   getParentRoute: () => rootRoute,
   component: Auth,
 });
+
+const registerRoute = createRoute({
+  path: "/auth/registro",
+  getParentRoute: () => rootRoute,
+  component: Register,
+})  
 
 const dashboardRoute = createRoute({
   path: "/home",
