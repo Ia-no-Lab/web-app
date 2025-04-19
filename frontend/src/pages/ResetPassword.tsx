@@ -4,7 +4,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/ui/input-otp"
+} from "@/src/components/ui/input-otp"
 
 export default function ResetPassword() {
   return ( 
