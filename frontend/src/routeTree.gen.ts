@@ -16,7 +16,7 @@ import { Route as NormasImport } from './routes/normas'
 import { Route as IndexImport } from './routes/index'
 import { Route as HomeIndexImport } from './routes/home/index'
 import { Route as AuthIndexImport } from './routes/auth/index'
-import { Route as HomePeriodicTableImport } from './routes/home/periodicTable'
+import { Route as HomeTabelaPeriodicaImport } from './routes/home/tabela-periodica'
 import { Route as HomeChatImport } from './routes/home/chat'
 import { Route as AuthRegistroImport } from './routes/auth/registro'
 import { Route as AuthRecuperarsenhaImport } from './routes/auth/recuperarsenha'
@@ -59,9 +59,9 @@ const AuthIndexRoute = AuthIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const HomePeriodicTableRoute = HomePeriodicTableImport.update({
-  id: '/home/periodicTable',
-  path: '/home/periodicTable',
+const HomeTabelaPeriodicaRoute = HomeTabelaPeriodicaImport.update({
+  id: '/home/tabela-periodica',
+  path: '/home/tabela-periodica',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -176,11 +176,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeChatImport
       parentRoute: typeof rootRoute
     }
-    '/home/periodicTable': {
-      id: '/home/periodicTable'
-      path: '/home/periodicTable'
-      fullPath: '/home/periodicTable'
-      preLoaderRoute: typeof HomePeriodicTableImport
+    '/home/tabela-periodica': {
+      id: '/home/tabela-periodica'
+      path: '/home/tabela-periodica'
+      fullPath: '/home/tabela-periodica'
+      preLoaderRoute: typeof HomeTabelaPeriodicaImport
       parentRoute: typeof rootRoute
     }
     '/auth/': {
@@ -245,7 +245,7 @@ export interface FileRoutesByFullPath {
   '/auth/recuperarsenha': typeof AuthRecuperarsenhaRoute
   '/auth/registro': typeof AuthRegistroRoute
   '/home/chat': typeof HomeChatRoute
-  '/home/periodicTable': typeof HomePeriodicTableRoute
+  '/home/tabela-periodica': typeof HomeTabelaPeriodicaRoute
   '/auth': typeof AuthIndexRoute
   '/home': typeof HomeIndexRoute
   '/home/experimentos/cromatografia': typeof HomeExperimentosCromatografiaRoute
@@ -263,7 +263,7 @@ export interface FileRoutesByTo {
   '/auth/recuperarsenha': typeof AuthRecuperarsenhaRoute
   '/auth/registro': typeof AuthRegistroRoute
   '/home/chat': typeof HomeChatRoute
-  '/home/periodicTable': typeof HomePeriodicTableRoute
+  '/home/tabela-periodica': typeof HomeTabelaPeriodicaRoute
   '/auth': typeof AuthIndexRoute
   '/home': typeof HomeIndexRoute
   '/home/experimentos/cromatografia': typeof HomeExperimentosCromatografiaRoute
@@ -282,7 +282,7 @@ export interface FileRoutesById {
   '/auth/recuperarsenha': typeof AuthRecuperarsenhaRoute
   '/auth/registro': typeof AuthRegistroRoute
   '/home/chat': typeof HomeChatRoute
-  '/home/periodicTable': typeof HomePeriodicTableRoute
+  '/home/tabela-periodica': typeof HomeTabelaPeriodicaRoute
   '/auth/': typeof AuthIndexRoute
   '/home/': typeof HomeIndexRoute
   '/home/experimentos/cromatografia': typeof HomeExperimentosCromatografiaRoute
@@ -302,7 +302,7 @@ export interface FileRouteTypes {
     | '/auth/recuperarsenha'
     | '/auth/registro'
     | '/home/chat'
-    | '/home/periodicTable'
+    | '/home/tabela-periodica'
     | '/auth'
     | '/home'
     | '/home/experimentos/cromatografia'
@@ -319,7 +319,7 @@ export interface FileRouteTypes {
     | '/auth/recuperarsenha'
     | '/auth/registro'
     | '/home/chat'
-    | '/home/periodicTable'
+    | '/home/tabela-periodica'
     | '/auth'
     | '/home'
     | '/home/experimentos/cromatografia'
@@ -336,7 +336,7 @@ export interface FileRouteTypes {
     | '/auth/recuperarsenha'
     | '/auth/registro'
     | '/home/chat'
-    | '/home/periodicTable'
+    | '/home/tabela-periodica'
     | '/auth/'
     | '/home/'
     | '/home/experimentos/cromatografia'
@@ -355,7 +355,7 @@ export interface RootRouteChildren {
   AuthRecuperarsenhaRoute: typeof AuthRecuperarsenhaRoute
   AuthRegistroRoute: typeof AuthRegistroRoute
   HomeChatRoute: typeof HomeChatRoute
-  HomePeriodicTableRoute: typeof HomePeriodicTableRoute
+  HomeTabelaPeriodicaRoute: typeof HomeTabelaPeriodicaRoute
   AuthIndexRoute: typeof AuthIndexRoute
   HomeIndexRoute: typeof HomeIndexRoute
   HomeExperimentosCromatografiaRoute: typeof HomeExperimentosCromatografiaRoute
@@ -373,7 +373,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRecuperarsenhaRoute: AuthRecuperarsenhaRoute,
   AuthRegistroRoute: AuthRegistroRoute,
   HomeChatRoute: HomeChatRoute,
-  HomePeriodicTableRoute: HomePeriodicTableRoute,
+  HomeTabelaPeriodicaRoute: HomeTabelaPeriodicaRoute,
   AuthIndexRoute: AuthIndexRoute,
   HomeIndexRoute: HomeIndexRoute,
   HomeExperimentosCromatografiaRoute: HomeExperimentosCromatografiaRoute,
@@ -402,7 +402,7 @@ export const routeTree = rootRoute
         "/auth/recuperarsenha",
         "/auth/registro",
         "/home/chat",
-        "/home/periodicTable",
+        "/home/tabela-periodica",
         "/auth/",
         "/home/",
         "/home/experimentos/cromatografia",
@@ -433,8 +433,8 @@ export const routeTree = rootRoute
     "/home/chat": {
       "filePath": "home/chat.tsx"
     },
-    "/home/periodicTable": {
-      "filePath": "home/periodicTable.tsx"
+    "/home/tabela-periodica": {
+      "filePath": "home/tabela-periodica.tsx"
     },
     "/auth/": {
       "filePath": "auth/index.tsx"

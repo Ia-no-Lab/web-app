@@ -3,7 +3,7 @@ import api from "@/services/api";
 import type { Element } from "@/types/Element";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/home/periodicTable")({
+export const Route = createFileRoute("/home/tabela-periodica")({
   component: PeriodicTable,
 });
 function PeriodicTable() {
