@@ -1,122 +1,39 @@
-import {
-  createRouter,
-  createRootRoute,
-  createRoute
-} from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import logo from "../logo.svg";
 
-import {
-  About,
-  Terms,
-  Dashboard,
-  Chat,
-  Home,
-  Experiment,
-  PeriodicTable,
-  Auth,
-  Register 
-} from "@/src/pages";
-
-import VulcaoBicarbonato from "@/src/pages/experimentos/VulcaoBicarbonato";
-import DensidadeLiquidos from "@/src/pages/experimentos/DensidadeLiquidos";
-import Cromatografia from "@/src/pages/experimentos/Cromatografia";
-
-import App from "@/src/App";
-
-const rootRoute = createRootRoute({
-  component: App,
+export const Route = createFileRoute("/")({
+	component: App,
 });
 
-const homeRoute = createRoute({
-  path: "/",
-  getParentRoute: () => rootRoute,
-  component: Home,
-});
-
-const aboutRoute = createRoute({
-  path: "/sobre",
-  getParentRoute: () => rootRoute,
-  component: About,
-});
-
-const termsRoute = createRoute({
-  path: "/normas",
-  getParentRoute: () => rootRoute,
-  component: Terms,
-});
-
-const authRoute = createRoute({
-  path: "/auth",
-  getParentRoute: () => rootRoute,
-  component: Auth,
-});
-
-const registerRoute = createRoute({
-  path: "/auth/registro",
-  getParentRoute: () => rootRoute,
-  component: Register,
-})  
-
-const dashboardRoute = createRoute({
-  path: "/home",
-  getParentRoute: () => rootRoute,
-  component: Dashboard,
-});
-
-const chatRoute = createRoute({
-  path: "/chat",
-  getParentRoute: () => dashboardRoute,
-  component: Chat,
-});
-
-const experimentRoute = createRoute({
-  path: "/experimentos",
-  getParentRoute: () => dashboardRoute,
-  component: Experiment,
-});
-
-const periodicTableRoute = createRoute({
-  path: "/tabela-periodica",
-  getParentRoute: () => dashboardRoute,
-  component: PeriodicTable,
-});
-
-const vulcaoRoute = createRoute({
-  path: "/experimentos/vulcao-bicarbonato",
-  getParentRoute: () => dashboardRoute,
-  component: VulcaoBicarbonato,
-});
-
-const densidadeRoute = createRoute({
-  path: "/experimentos/densidade-liquidos",
-  getParentRoute: () => dashboardRoute,
-  component: DensidadeLiquidos,
-});
-
-const cromatografiaRoute = createRoute({
-  path: "/experimentos/cromatografia",
-  getParentRoute: () => dashboardRoute,
-  component: Cromatografia,
-});
-
-
-const routeTree = rootRoute.addChildren([
-  homeRoute,
-  aboutRoute,
-  termsRoute,
-  authRoute,
-  dashboardRoute.addChildren([
-    chatRoute,
-    experimentRoute,
-    periodicTableRoute,
-    vulcaoRoute,
-    densidadeRoute,
-    cromatografiaRoute,
-  ]),
-]);
-
-export const router = createRouter({ routeTree });
-declare module "@tanstack/react-router" {
-  interface Register {
-    router: typeof router;
-  }
+function App() {
+	return (
+		<div className="text-center">
+			<header className="min-h-screen flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
+				<img
+					src={logo}
+					className="h-[40vmin] pointer-events-none animate-[spin_20s_linear_infinite]"
+					alt="logo"
+				/>
+				<p>
+					Edit <code>src/routes/index.tsx</code> and save to reload.
+				</p>
+				<a
+					className="text-[#61dafb] hover:underline"
+					href="https://reactjs.org"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Learn React
+				</a>
+				<a
+					className="text-[#61dafb] hover:underline"
+					href="https://tanstack.com"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Learn TanStack
+				</a>
+			</header>
+		</div>
+	);
 }
