@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import api from "@/services/api";
 import type { Element } from "@/types/Element";
+import { createFileRoute } from "@tanstack/react-router";
 
-const PeriodicTable = () => {
+export const Route = createFileRoute("/home/periodicTable")({
+  component: PeriodicTable,
+});
+function PeriodicTable() {
   const [elements, setElements] = useState<Element[]>([]);
 
   useEffect(() => {
@@ -32,6 +36,4 @@ const PeriodicTable = () => {
       </div>
     </div>
   );
-};
-
-export default PeriodicTable;
+}

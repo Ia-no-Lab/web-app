@@ -1,5 +1,9 @@
+import { createFileRoute } from "@tanstack/react-router";
 
-export default function () {
+export const Route = createFileRoute("/normas")({
+  component: Normas,
+});
+function Normas() {
   return (
     <div className="p-10 max-w-4xl mx-auto text-eerie-black">
       <h1 className="text-5xl font-bold mb-4">Normas de uso</h1>

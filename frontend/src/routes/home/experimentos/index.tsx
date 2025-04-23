@@ -2,6 +2,11 @@ import { useNavigate } from "@tanstack/react-router";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Flame, Beaker, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { createFileRoute } from "@tanstack/react-router";
+
+export const Route = createFileRoute("/home/experimentos/")({
+  component: Experimentos,
+});
 
 const experimentosPopulares = [
   {
@@ -21,7 +26,7 @@ const experimentosPopulares = [
   },
 ];
 
-const Experiment = () => {
+function Experimentos() {
   const navigate = useNavigate();
 
   return (
@@ -67,6 +72,4 @@ const Experiment = () => {
       </div>
     </div>
   );
-};
-
-export default Experiment;
+}

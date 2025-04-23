@@ -1,9 +1,12 @@
-
 import { LoginForm } from "@/components/login-form.tsx";
+import { createFileRoute } from "@tanstack/react-router";
 
-const Auth = () => {
+export const Route = createFileRoute("/auth/")({
+  component: Auth,
+});
+
+function Auth() {
   return (
-
     //criar if para verificar se o usuário está logado, se logado jogar pro dash, se não jogar pro login
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm">
@@ -11,6 +14,4 @@ const Auth = () => {
       </div>
     </div>
   );
-};
-
-export default Auth;
+}
