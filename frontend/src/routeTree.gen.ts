@@ -10,66 +10,336 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
+import { Route as rootRoute } from "./routes/__root";
+import { Route as SobreImport } from "./routes/sobre";
+import { Route as NormasImport } from "./routes/normas";
+import { Route as IndexImport } from "./routes/index";
+import { Route as IdentificaoIndexImport } from "./routes/auth/index";
+import { Route as HomeIndexImport } from "./routes/home/index";
+import { Route as IdentificaoRegistroImport } from "./routes/auth/registro";
+import { Route as IdentificaoRecuperarsenhaImport } from "./routes/auth/recuperarsenha";
+import { Route as HomePeriodicTableImport } from "./routes/home/periodicTable";
+import { Route as HomeExperimentImport } from "./routes/home/experiment";
+import { Route as HomeChatImport } from "./routes/home/chat";
+import { Route as ExperimentosVulcaoBicarbonatoImport } from "./routes/experimentos/VulcaoBicarbonato";
+import { Route as ExperimentosDensidadeLiquidosImport } from "./routes/experimentos/DensidadeLiquidos";
+import { Route as ExperimentosCromatografiaImport } from "./routes/experimentos/Cromatografia";
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
+const SobreRoute = SobreImport.update({
+  id: "/sobre",
+  path: "/sobre",
   getParentRoute: () => rootRoute,
-} as any)
+} as any);
+
+const NormasRoute = NormasImport.update({
+  id: "/normas",
+  path: "/normas",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const IndexRoute = IndexImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const IdentificaoIndexRoute = IdentificaoIndexImport.update({
+  id: "/identificação/",
+  path: "/identificação/",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const HomeIndexRoute = HomeIndexImport.update({
+  id: "/home/",
+  path: "/home/",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const IdentificaoRegistroRoute = IdentificaoRegistroImport.update({
+  id: "/identificação/registro",
+  path: "/identificação/registro",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const IdentificaoRecuperarsenhaRoute = IdentificaoRecuperarsenhaImport.update({
+  id: "/identificação/recuperarsenha",
+  path: "/identificação/recuperarsenha",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const HomePeriodicTableRoute = HomePeriodicTableImport.update({
+  id: "/home/periodicTable",
+  path: "/home/periodicTable",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const HomeExperimentRoute = HomeExperimentImport.update({
+  id: "/home/experiment",
+  path: "/home/experiment",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const HomeChatRoute = HomeChatImport.update({
+  id: "/home/chat",
+  path: "/home/chat",
+  getParentRoute: () => rootRoute,
+} as any);
+
+const ExperimentosVulcaoBicarbonatoRoute =
+  ExperimentosVulcaoBicarbonatoImport.update({
+    id: "/experimentos/VulcaoBicarbonato",
+    path: "/experimentos/VulcaoBicarbonato",
+    getParentRoute: () => rootRoute,
+  } as any);
+
+const ExperimentosDensidadeLiquidosRoute =
+  ExperimentosDensidadeLiquidosImport.update({
+    id: "/experimentos/DensidadeLiquidos",
+    path: "/experimentos/DensidadeLiquidos",
+    getParentRoute: () => rootRoute,
+  } as any);
+
+const ExperimentosCromatografiaRoute = ExperimentosCromatografiaImport.update({
+  id: "/experimentos/Cromatografia",
+  path: "/experimentos/Cromatografia",
+  getParentRoute: () => rootRoute,
+} as any);
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/normas": {
+      id: "/normas";
+      path: "/normas";
+      fullPath: "/normas";
+      preLoaderRoute: typeof NormasImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/sobre": {
+      id: "/sobre";
+      path: "/sobre";
+      fullPath: "/sobre";
+      preLoaderRoute: typeof SobreImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/experimentos/Cromatografia": {
+      id: "/experimentos/Cromatografia";
+      path: "/experimentos/Cromatografia";
+      fullPath: "/experimentos/Cromatografia";
+      preLoaderRoute: typeof ExperimentosCromatografiaImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/experimentos/DensidadeLiquidos": {
+      id: "/experimentos/DensidadeLiquidos";
+      path: "/experimentos/DensidadeLiquidos";
+      fullPath: "/experimentos/DensidadeLiquidos";
+      preLoaderRoute: typeof ExperimentosDensidadeLiquidosImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/experimentos/VulcaoBicarbonato": {
+      id: "/experimentos/VulcaoBicarbonato";
+      path: "/experimentos/VulcaoBicarbonato";
+      fullPath: "/experimentos/VulcaoBicarbonato";
+      preLoaderRoute: typeof ExperimentosVulcaoBicarbonatoImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/home/chat": {
+      id: "/home/chat";
+      path: "/home/chat";
+      fullPath: "/home/chat";
+      preLoaderRoute: typeof HomeChatImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/home/experiment": {
+      id: "/home/experiment";
+      path: "/home/experiment";
+      fullPath: "/home/experiment";
+      preLoaderRoute: typeof HomeExperimentImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/home/periodicTable": {
+      id: "/home/periodicTable";
+      path: "/home/periodicTable";
+      fullPath: "/home/periodicTable";
+      preLoaderRoute: typeof HomePeriodicTableImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/identificação/recuperarsenha": {
+      id: "/identificação/recuperarsenha";
+      path: "/identificação/recuperarsenha";
+      fullPath: "/identificação/recuperarsenha";
+      preLoaderRoute: typeof IdentificaoRecuperarsenhaImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/identificação/registro": {
+      id: "/identificação/registro";
+      path: "/identificação/registro";
+      fullPath: "/identificação/registro";
+      preLoaderRoute: typeof IdentificaoRegistroImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/home/": {
+      id: "/home/";
+      path: "/home";
+      fullPath: "/home";
+      preLoaderRoute: typeof HomeIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    "/identificação/": {
+      id: "/identificação/";
+      path: "/identificação";
+      fullPath: "/identificação";
+      preLoaderRoute: typeof IdentificaoIndexImport;
+      parentRoute: typeof rootRoute;
+    };
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  "/": typeof IndexRoute;
+  "/normas": typeof NormasRoute;
+  "/sobre": typeof SobreRoute;
+  "/experimentos/Cromatografia": typeof ExperimentosCromatografiaRoute;
+  "/experimentos/DensidadeLiquidos": typeof ExperimentosDensidadeLiquidosRoute;
+  "/experimentos/VulcaoBicarbonato": typeof ExperimentosVulcaoBicarbonatoRoute;
+  "/home/chat": typeof HomeChatRoute;
+  "/home/experiment": typeof HomeExperimentRoute;
+  "/home/periodicTable": typeof HomePeriodicTableRoute;
+  "/identificação/recuperarsenha": typeof IdentificaoRecuperarsenhaRoute;
+  "/identificação/registro": typeof IdentificaoRegistroRoute;
+  "/home": typeof HomeIndexRoute;
+  "/identificação": typeof IdentificaoIndexRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  "/": typeof IndexRoute;
+  "/normas": typeof NormasRoute;
+  "/sobre": typeof SobreRoute;
+  "/experimentos/Cromatografia": typeof ExperimentosCromatografiaRoute;
+  "/experimentos/DensidadeLiquidos": typeof ExperimentosDensidadeLiquidosRoute;
+  "/experimentos/VulcaoBicarbonato": typeof ExperimentosVulcaoBicarbonatoRoute;
+  "/home/chat": typeof HomeChatRoute;
+  "/home/experiment": typeof HomeExperimentRoute;
+  "/home/periodicTable": typeof HomePeriodicTableRoute;
+  "/identificação/recuperarsenha": typeof IdentificaoRecuperarsenhaRoute;
+  "/identificação/registro": typeof IdentificaoRegistroRoute;
+  "/home": typeof HomeIndexRoute;
+  "/identificação": typeof IdentificaoIndexRoute;
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
+  __root__: typeof rootRoute;
+  "/": typeof IndexRoute;
+  "/normas": typeof NormasRoute;
+  "/sobre": typeof SobreRoute;
+  "/experimentos/Cromatografia": typeof ExperimentosCromatografiaRoute;
+  "/experimentos/DensidadeLiquidos": typeof ExperimentosDensidadeLiquidosRoute;
+  "/experimentos/VulcaoBicarbonato": typeof ExperimentosVulcaoBicarbonatoRoute;
+  "/home/chat": typeof HomeChatRoute;
+  "/home/experiment": typeof HomeExperimentRoute;
+  "/home/periodicTable": typeof HomePeriodicTableRoute;
+  "/identificação/recuperarsenha": typeof IdentificaoRecuperarsenhaRoute;
+  "/identificação/registro": typeof IdentificaoRegistroRoute;
+  "/home/": typeof HomeIndexRoute;
+  "/identificação/": typeof IdentificaoIndexRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
-  fileRoutesById: FileRoutesById
+  fileRoutesByFullPath: FileRoutesByFullPath;
+  fullPaths:
+    | "/"
+    | "/normas"
+    | "/sobre"
+    | "/experimentos/Cromatografia"
+    | "/experimentos/DensidadeLiquidos"
+    | "/experimentos/VulcaoBicarbonato"
+    | "/home/chat"
+    | "/home/experiment"
+    | "/home/periodicTable"
+    | "/identificação/recuperarsenha"
+    | "/identificação/registro"
+    | "/home"
+    | "/identificação";
+  fileRoutesByTo: FileRoutesByTo;
+  to:
+    | "/"
+    | "/normas"
+    | "/sobre"
+    | "/experimentos/Cromatografia"
+    | "/experimentos/DensidadeLiquidos"
+    | "/experimentos/VulcaoBicarbonato"
+    | "/home/chat"
+    | "/home/experiment"
+    | "/home/periodicTable"
+    | "/identificação/recuperarsenha"
+    | "/identificação/registro"
+    | "/home"
+    | "/identificação";
+  id:
+    | "__root__"
+    | "/"
+    | "/normas"
+    | "/sobre"
+    | "/experimentos/Cromatografia"
+    | "/experimentos/DensidadeLiquidos"
+    | "/experimentos/VulcaoBicarbonato"
+    | "/home/chat"
+    | "/home/experiment"
+    | "/home/periodicTable"
+    | "/identificação/recuperarsenha"
+    | "/identificação/registro"
+    | "/home/"
+    | "/identificação/";
+  fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  IndexRoute: typeof IndexRoute;
+  NormasRoute: typeof NormasRoute;
+  SobreRoute: typeof SobreRoute;
+  ExperimentosCromatografiaRoute: typeof ExperimentosCromatografiaRoute;
+  ExperimentosDensidadeLiquidosRoute: typeof ExperimentosDensidadeLiquidosRoute;
+  ExperimentosVulcaoBicarbonatoRoute: typeof ExperimentosVulcaoBicarbonatoRoute;
+  HomeChatRoute: typeof HomeChatRoute;
+  HomeExperimentRoute: typeof HomeExperimentRoute;
+  HomePeriodicTableRoute: typeof HomePeriodicTableRoute;
+  IdentificaoRecuperarsenhaRoute: typeof IdentificaoRecuperarsenhaRoute;
+  IdentificaoRegistroRoute: typeof IdentificaoRegistroRoute;
+  HomeIndexRoute: typeof HomeIndexRoute;
+  IdentificaoIndexRoute: typeof IdentificaoIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-}
+  NormasRoute: NormasRoute,
+  SobreRoute: SobreRoute,
+  ExperimentosCromatografiaRoute: ExperimentosCromatografiaRoute,
+  ExperimentosDensidadeLiquidosRoute: ExperimentosDensidadeLiquidosRoute,
+  ExperimentosVulcaoBicarbonatoRoute: ExperimentosVulcaoBicarbonatoRoute,
+  HomeChatRoute: HomeChatRoute,
+  HomeExperimentRoute: HomeExperimentRoute,
+  HomePeriodicTableRoute: HomePeriodicTableRoute,
+  IdentificaoRecuperarsenhaRoute: IdentificaoRecuperarsenhaRoute,
+  IdentificaoRegistroRoute: IdentificaoRegistroRoute,
+  HomeIndexRoute: HomeIndexRoute,
+  IdentificaoIndexRoute: IdentificaoIndexRoute,
+};
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
 /* ROUTE_MANIFEST_START
 {
@@ -77,11 +347,59 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/normas",
+        "/sobre",
+        "/experimentos/Cromatografia",
+        "/experimentos/DensidadeLiquidos",
+        "/experimentos/VulcaoBicarbonato",
+        "/home/chat",
+        "/home/experiment",
+        "/home/periodicTable",
+        "/identificação/recuperarsenha",
+        "/identificação/registro",
+        "/home/",
+        "/identificação/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/normas": {
+      "filePath": "normas.tsx"
+    },
+    "/sobre": {
+      "filePath": "sobre.tsx"
+    },
+    "/experimentos/Cromatografia": {
+      "filePath": "experimentos/Cromatografia.tsx"
+    },
+    "/experimentos/DensidadeLiquidos": {
+      "filePath": "experimentos/DensidadeLiquidos.tsx"
+    },
+    "/experimentos/VulcaoBicarbonato": {
+      "filePath": "experimentos/VulcaoBicarbonato.tsx"
+    },
+    "/home/chat": {
+      "filePath": "home/chat.tsx"
+    },
+    "/home/experiment": {
+      "filePath": "home/experiment.tsx"
+    },
+    "/home/periodicTable": {
+      "filePath": "home/periodicTable.tsx"
+    },
+    "/identificação/recuperarsenha": {
+      "filePath": "identificação/recuperarsenha.tsx"
+    },
+    "/identificação/registro": {
+      "filePath": "identificação/registro.tsx"
+    },
+    "/home/": {
+      "filePath": "home/index.tsx"
+    },
+    "/identificação/": {
+      "filePath": "identificação/index.tsx"
     }
   }
 }
