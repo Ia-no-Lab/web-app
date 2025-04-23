@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/sobre")({
-  component: Login,
+  component: About,
 });
 
-export default function About() {
+function About() {
   return (
     <div className="p-10 max-w-4xl mx-auto text-eerie-black">
       <h1 className="text-5xl font-bold mb-6">Sobre o projeto</h1>
@@ -21,5 +21,3 @@ export default function About() {
     </div>
   );
 }
-
-export default About;
