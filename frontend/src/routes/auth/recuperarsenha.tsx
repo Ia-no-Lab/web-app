@@ -1,13 +1,16 @@
-import React from "react";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/src/components/ui/input-otp"
+} from "@/components/ui/input-otp";
+import { createFileRoute } from "@tanstack/react-router";
 
-export default function ResetPassword() {
-  return ( 
+export const Route = createFileRoute("/auth/recuperarsenha")({
+  component: ResetPassword,
+});
+function ResetPassword() {
+  return (
     <InputOTP maxLength={6}>
       <InputOTPGroup>
         <InputOTPSlot index={0} />
@@ -20,5 +23,6 @@ export default function ResetPassword() {
         <InputOTPSlot index={4} />
         <InputOTPSlot index={5} />
       </InputOTPGroup>
-    </InputOTP>);
+    </InputOTP>
+  );
 }

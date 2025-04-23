@@ -1,5 +1,5 @@
-import { Outlet, useRouterState } from "@tanstack/react-router"
-import { AppSidebar } from "@/src/components/app-sidebar"
+import { Outlet, useRouterState } from "@tanstack/react-router";
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,16 +7,21 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/src/components/ui/breadcrumb"
-import { Separator } from "@/src/components/ui/separator"
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/src/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import { createFileRoute } from "@tanstack/react-router";
 
-export default function Dashboard() {
-  const route = useRouterState({ select: (s) => s.location.pathname })
+export const Route = createFileRoute("/home/")({
+  component: Home,
+});
+
+function Home() {
+  const route = useRouterState({ select: (s) => s.location.pathname });
 
   const getBreadcrumbTitle = () => {
     const map: Record<string, string> = {
@@ -27,9 +32,9 @@ export default function Dashboard() {
       "/home/experimentos/vulcao-bicarbonato": "Vulcão de Bicarbonato",
       "/home/experimentos/densidade-liquidos": "Densidade dos Líquidos",
       "/home/experimentos/cromatografia": "Cromatografia",
-    }
-    return map[route] || "Página"
-  }
+    };
+    return map[route] || "Página";
+  };
 
   return (
     <SidebarProvider>
@@ -59,10 +64,12 @@ export default function Dashboard() {
               <h1 className="text-4xl font-bold">Bem-vindo à Home!</h1>
               <p className="text-lg text-muted-foreground">
                 Aqui você pode acessar todas as funcionalidades do Ia no Lab:
-                visualizar a tabela periódica, explorar experimentos e conversar com a IA.
+                visualizar a tabela periódica, explorar experimentos e conversar
+                com a IA.
               </p>
               <p className="text-base">
-                Use o menu lateral para navegar entre as seções e aproveitar a plataforma.
+                Use o menu lateral para navegar entre as seções e aproveitar a
+                plataforma.
               </p>
             </div>
           )}
@@ -72,5 +79,5 @@ export default function Dashboard() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

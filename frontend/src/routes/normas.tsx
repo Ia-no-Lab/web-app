@@ -1,8 +1,11 @@
-import React from "react"
+import { createFileRoute } from "@tanstack/react-router";
 
-export default function () {
-    return (
-     <div className="p-10 max-w-4xl mx-auto text-eerie-black">
+export const Route = createFileRoute("/normas")({
+  component: Normas,
+});
+function Normas() {
+  return (
+    <div className="p-10 max-w-4xl mx-auto text-eerie-black">
       <h1 className="text-5xl font-bold mb-4">Normas de uso</h1>
       <h2 className="text-xl font-semibold text-neutral-700 mb-6">
         Ao criar uma conta, você automaticamente aceita as normas abaixo:
@@ -14,5 +17,5 @@ export default function () {
         <li>Relate qualquer comportamento inadequado ou bugs.</li>
       </ul>
     </div>
-    )
+  );
 }
