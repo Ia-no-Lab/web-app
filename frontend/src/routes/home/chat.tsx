@@ -1,5 +1,3 @@
-import React from "react";
-
 const Chat = () => {
     return (
          <div className="p-10 max-w-4xl mx-auto text-eerie-black">

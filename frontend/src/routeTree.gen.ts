@@ -10,336 +10,384 @@
 
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root";
-import { Route as SobreImport } from "./routes/sobre";
-import { Route as NormasImport } from "./routes/normas";
-import { Route as IndexImport } from "./routes/index";
-import { Route as IdentificaoIndexImport } from "./routes/auth/index";
-import { Route as HomeIndexImport } from "./routes/home/index";
-import { Route as IdentificaoRegistroImport } from "./routes/auth/registro";
-import { Route as IdentificaoRecuperarsenhaImport } from "./routes/auth/recuperarsenha";
-import { Route as HomePeriodicTableImport } from "./routes/home/periodicTable";
-import { Route as HomeExperimentImport } from "./routes/home/experiment";
-import { Route as HomeChatImport } from "./routes/home/chat";
-import { Route as ExperimentosVulcaoBicarbonatoImport } from "./routes/experimentos/VulcaoBicarbonato";
-import { Route as ExperimentosDensidadeLiquidosImport } from "./routes/experimentos/DensidadeLiquidos";
-import { Route as ExperimentosCromatografiaImport } from "./routes/experimentos/Cromatografia";
+import { Route as rootRoute } from './routes/__root'
+import { Route as SobreImport } from './routes/sobre'
+import { Route as NormasImport } from './routes/normas'
+import { Route as IndexImport } from './routes/index'
+import { Route as HomeIndexImport } from './routes/home/index'
+import { Route as AuthIndexImport } from './routes/auth/index'
+import { Route as HomePeriodicTableImport } from './routes/home/periodicTable'
+import { Route as HomeChatImport } from './routes/home/chat'
+import { Route as AuthRegistroImport } from './routes/auth/registro'
+import { Route as AuthRecuperarsenhaImport } from './routes/auth/recuperarsenha'
+import { Route as AuthLoginImport } from './routes/auth/login'
+import { Route as HomeExperimentosIndexImport } from './routes/home/experimentos/index'
+import { Route as HomeExperimentosVulcaoBicarbonatoImport } from './routes/home/experimentos/vulcaoBicarbonato'
+import { Route as HomeExperimentosNovoExperimentoImport } from './routes/home/experimentos/novo-experimento'
+import { Route as HomeExperimentosDensidadeLiquidosImport } from './routes/home/experimentos/densidadeLiquidos'
+import { Route as HomeExperimentosCromatografiaImport } from './routes/home/experimentos/cromatografia'
 
 // Create/Update Routes
 
 const SobreRoute = SobreImport.update({
-  id: "/sobre",
-  path: "/sobre",
+  id: '/sobre',
+  path: '/sobre',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const NormasRoute = NormasImport.update({
-  id: "/normas",
-  path: "/normas",
+  id: '/normas',
+  path: '/normas',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const IndexRoute = IndexImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRoute,
-} as any);
-
-const IdentificaoIndexRoute = IdentificaoIndexImport.update({
-  id: "/identificação/",
-  path: "/identificação/",
-  getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const HomeIndexRoute = HomeIndexImport.update({
-  id: "/home/",
-  path: "/home/",
+  id: '/home/',
+  path: '/home/',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
-const IdentificaoRegistroRoute = IdentificaoRegistroImport.update({
-  id: "/identificação/registro",
-  path: "/identificação/registro",
+const AuthIndexRoute = AuthIndexImport.update({
+  id: '/auth/',
+  path: '/auth/',
   getParentRoute: () => rootRoute,
-} as any);
-
-const IdentificaoRecuperarsenhaRoute = IdentificaoRecuperarsenhaImport.update({
-  id: "/identificação/recuperarsenha",
-  path: "/identificação/recuperarsenha",
-  getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const HomePeriodicTableRoute = HomePeriodicTableImport.update({
-  id: "/home/periodicTable",
-  path: "/home/periodicTable",
+  id: '/home/periodicTable',
+  path: '/home/periodicTable',
   getParentRoute: () => rootRoute,
-} as any);
-
-const HomeExperimentRoute = HomeExperimentImport.update({
-  id: "/home/experiment",
-  path: "/home/experiment",
-  getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const HomeChatRoute = HomeChatImport.update({
-  id: "/home/chat",
-  path: "/home/chat",
+  id: '/home/chat',
+  path: '/home/chat',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
-const ExperimentosVulcaoBicarbonatoRoute =
-  ExperimentosVulcaoBicarbonatoImport.update({
-    id: "/experimentos/VulcaoBicarbonato",
-    path: "/experimentos/VulcaoBicarbonato",
-    getParentRoute: () => rootRoute,
-  } as any);
-
-const ExperimentosDensidadeLiquidosRoute =
-  ExperimentosDensidadeLiquidosImport.update({
-    id: "/experimentos/DensidadeLiquidos",
-    path: "/experimentos/DensidadeLiquidos",
-    getParentRoute: () => rootRoute,
-  } as any);
-
-const ExperimentosCromatografiaRoute = ExperimentosCromatografiaImport.update({
-  id: "/experimentos/Cromatografia",
-  path: "/experimentos/Cromatografia",
+const AuthRegistroRoute = AuthRegistroImport.update({
+  id: '/auth/registro',
+  path: '/auth/registro',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const AuthRecuperarsenhaRoute = AuthRecuperarsenhaImport.update({
+  id: '/auth/recuperarsenha',
+  path: '/auth/recuperarsenha',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthLoginRoute = AuthLoginImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const HomeExperimentosIndexRoute = HomeExperimentosIndexImport.update({
+  id: '/home/experimentos/',
+  path: '/home/experimentos/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const HomeExperimentosVulcaoBicarbonatoRoute =
+  HomeExperimentosVulcaoBicarbonatoImport.update({
+    id: '/home/experimentos/vulcaoBicarbonato',
+    path: '/home/experimentos/vulcaoBicarbonato',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const HomeExperimentosNovoExperimentoRoute =
+  HomeExperimentosNovoExperimentoImport.update({
+    id: '/home/experimentos/novo-experimento',
+    path: '/home/experimentos/novo-experimento',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const HomeExperimentosDensidadeLiquidosRoute =
+  HomeExperimentosDensidadeLiquidosImport.update({
+    id: '/home/experimentos/densidadeLiquidos',
+    path: '/home/experimentos/densidadeLiquidos',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const HomeExperimentosCromatografiaRoute =
+  HomeExperimentosCromatografiaImport.update({
+    id: '/home/experimentos/cromatografia',
+    path: '/home/experimentos/cromatografia',
+    getParentRoute: () => rootRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/normas": {
-      id: "/normas";
-      path: "/normas";
-      fullPath: "/normas";
-      preLoaderRoute: typeof NormasImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/sobre": {
-      id: "/sobre";
-      path: "/sobre";
-      fullPath: "/sobre";
-      preLoaderRoute: typeof SobreImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/experimentos/Cromatografia": {
-      id: "/experimentos/Cromatografia";
-      path: "/experimentos/Cromatografia";
-      fullPath: "/experimentos/Cromatografia";
-      preLoaderRoute: typeof ExperimentosCromatografiaImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/experimentos/DensidadeLiquidos": {
-      id: "/experimentos/DensidadeLiquidos";
-      path: "/experimentos/DensidadeLiquidos";
-      fullPath: "/experimentos/DensidadeLiquidos";
-      preLoaderRoute: typeof ExperimentosDensidadeLiquidosImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/experimentos/VulcaoBicarbonato": {
-      id: "/experimentos/VulcaoBicarbonato";
-      path: "/experimentos/VulcaoBicarbonato";
-      fullPath: "/experimentos/VulcaoBicarbonato";
-      preLoaderRoute: typeof ExperimentosVulcaoBicarbonatoImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/home/chat": {
-      id: "/home/chat";
-      path: "/home/chat";
-      fullPath: "/home/chat";
-      preLoaderRoute: typeof HomeChatImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/home/experiment": {
-      id: "/home/experiment";
-      path: "/home/experiment";
-      fullPath: "/home/experiment";
-      preLoaderRoute: typeof HomeExperimentImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/home/periodicTable": {
-      id: "/home/periodicTable";
-      path: "/home/periodicTable";
-      fullPath: "/home/periodicTable";
-      preLoaderRoute: typeof HomePeriodicTableImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/identificação/recuperarsenha": {
-      id: "/identificação/recuperarsenha";
-      path: "/identificação/recuperarsenha";
-      fullPath: "/identificação/recuperarsenha";
-      preLoaderRoute: typeof IdentificaoRecuperarsenhaImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/identificação/registro": {
-      id: "/identificação/registro";
-      path: "/identificação/registro";
-      fullPath: "/identificação/registro";
-      preLoaderRoute: typeof IdentificaoRegistroImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/home/": {
-      id: "/home/";
-      path: "/home";
-      fullPath: "/home";
-      preLoaderRoute: typeof HomeIndexImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/identificação/": {
-      id: "/identificação/";
-      path: "/identificação";
-      fullPath: "/identificação";
-      preLoaderRoute: typeof IdentificaoIndexImport;
-      parentRoute: typeof rootRoute;
-    };
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/normas': {
+      id: '/normas'
+      path: '/normas'
+      fullPath: '/normas'
+      preLoaderRoute: typeof NormasImport
+      parentRoute: typeof rootRoute
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/auth/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/recuperarsenha': {
+      id: '/auth/recuperarsenha'
+      path: '/auth/recuperarsenha'
+      fullPath: '/auth/recuperarsenha'
+      preLoaderRoute: typeof AuthRecuperarsenhaImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/registro': {
+      id: '/auth/registro'
+      path: '/auth/registro'
+      fullPath: '/auth/registro'
+      preLoaderRoute: typeof AuthRegistroImport
+      parentRoute: typeof rootRoute
+    }
+    '/home/chat': {
+      id: '/home/chat'
+      path: '/home/chat'
+      fullPath: '/home/chat'
+      preLoaderRoute: typeof HomeChatImport
+      parentRoute: typeof rootRoute
+    }
+    '/home/periodicTable': {
+      id: '/home/periodicTable'
+      path: '/home/periodicTable'
+      fullPath: '/home/periodicTable'
+      preLoaderRoute: typeof HomePeriodicTableImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/': {
+      id: '/auth/'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/home/': {
+      id: '/home/'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/home/experimentos/cromatografia': {
+      id: '/home/experimentos/cromatografia'
+      path: '/home/experimentos/cromatografia'
+      fullPath: '/home/experimentos/cromatografia'
+      preLoaderRoute: typeof HomeExperimentosCromatografiaImport
+      parentRoute: typeof rootRoute
+    }
+    '/home/experimentos/densidadeLiquidos': {
+      id: '/home/experimentos/densidadeLiquidos'
+      path: '/home/experimentos/densidadeLiquidos'
+      fullPath: '/home/experimentos/densidadeLiquidos'
+      preLoaderRoute: typeof HomeExperimentosDensidadeLiquidosImport
+      parentRoute: typeof rootRoute
+    }
+    '/home/experimentos/novo-experimento': {
+      id: '/home/experimentos/novo-experimento'
+      path: '/home/experimentos/novo-experimento'
+      fullPath: '/home/experimentos/novo-experimento'
+      preLoaderRoute: typeof HomeExperimentosNovoExperimentoImport
+      parentRoute: typeof rootRoute
+    }
+    '/home/experimentos/vulcaoBicarbonato': {
+      id: '/home/experimentos/vulcaoBicarbonato'
+      path: '/home/experimentos/vulcaoBicarbonato'
+      fullPath: '/home/experimentos/vulcaoBicarbonato'
+      preLoaderRoute: typeof HomeExperimentosVulcaoBicarbonatoImport
+      parentRoute: typeof rootRoute
+    }
+    '/home/experimentos/': {
+      id: '/home/experimentos/'
+      path: '/home/experimentos'
+      fullPath: '/home/experimentos'
+      preLoaderRoute: typeof HomeExperimentosIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
-  "/normas": typeof NormasRoute;
-  "/sobre": typeof SobreRoute;
-  "/experimentos/Cromatografia": typeof ExperimentosCromatografiaRoute;
-  "/experimentos/DensidadeLiquidos": typeof ExperimentosDensidadeLiquidosRoute;
-  "/experimentos/VulcaoBicarbonato": typeof ExperimentosVulcaoBicarbonatoRoute;
-  "/home/chat": typeof HomeChatRoute;
-  "/home/experiment": typeof HomeExperimentRoute;
-  "/home/periodicTable": typeof HomePeriodicTableRoute;
-  "/identificação/recuperarsenha": typeof IdentificaoRecuperarsenhaRoute;
-  "/identificação/registro": typeof IdentificaoRegistroRoute;
-  "/home": typeof HomeIndexRoute;
-  "/identificação": typeof IdentificaoIndexRoute;
+  '/': typeof IndexRoute
+  '/normas': typeof NormasRoute
+  '/sobre': typeof SobreRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/recuperarsenha': typeof AuthRecuperarsenhaRoute
+  '/auth/registro': typeof AuthRegistroRoute
+  '/home/chat': typeof HomeChatRoute
+  '/home/periodicTable': typeof HomePeriodicTableRoute
+  '/auth': typeof AuthIndexRoute
+  '/home': typeof HomeIndexRoute
+  '/home/experimentos/cromatografia': typeof HomeExperimentosCromatografiaRoute
+  '/home/experimentos/densidadeLiquidos': typeof HomeExperimentosDensidadeLiquidosRoute
+  '/home/experimentos/novo-experimento': typeof HomeExperimentosNovoExperimentoRoute
+  '/home/experimentos/vulcaoBicarbonato': typeof HomeExperimentosVulcaoBicarbonatoRoute
+  '/home/experimentos': typeof HomeExperimentosIndexRoute
 }
 
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
-  "/normas": typeof NormasRoute;
-  "/sobre": typeof SobreRoute;
-  "/experimentos/Cromatografia": typeof ExperimentosCromatografiaRoute;
-  "/experimentos/DensidadeLiquidos": typeof ExperimentosDensidadeLiquidosRoute;
-  "/experimentos/VulcaoBicarbonato": typeof ExperimentosVulcaoBicarbonatoRoute;
-  "/home/chat": typeof HomeChatRoute;
-  "/home/experiment": typeof HomeExperimentRoute;
-  "/home/periodicTable": typeof HomePeriodicTableRoute;
-  "/identificação/recuperarsenha": typeof IdentificaoRecuperarsenhaRoute;
-  "/identificação/registro": typeof IdentificaoRegistroRoute;
-  "/home": typeof HomeIndexRoute;
-  "/identificação": typeof IdentificaoIndexRoute;
+  '/': typeof IndexRoute
+  '/normas': typeof NormasRoute
+  '/sobre': typeof SobreRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/recuperarsenha': typeof AuthRecuperarsenhaRoute
+  '/auth/registro': typeof AuthRegistroRoute
+  '/home/chat': typeof HomeChatRoute
+  '/home/periodicTable': typeof HomePeriodicTableRoute
+  '/auth': typeof AuthIndexRoute
+  '/home': typeof HomeIndexRoute
+  '/home/experimentos/cromatografia': typeof HomeExperimentosCromatografiaRoute
+  '/home/experimentos/densidadeLiquidos': typeof HomeExperimentosDensidadeLiquidosRoute
+  '/home/experimentos/novo-experimento': typeof HomeExperimentosNovoExperimentoRoute
+  '/home/experimentos/vulcaoBicarbonato': typeof HomeExperimentosVulcaoBicarbonatoRoute
+  '/home/experimentos': typeof HomeExperimentosIndexRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  "/": typeof IndexRoute;
-  "/normas": typeof NormasRoute;
-  "/sobre": typeof SobreRoute;
-  "/experimentos/Cromatografia": typeof ExperimentosCromatografiaRoute;
-  "/experimentos/DensidadeLiquidos": typeof ExperimentosDensidadeLiquidosRoute;
-  "/experimentos/VulcaoBicarbonato": typeof ExperimentosVulcaoBicarbonatoRoute;
-  "/home/chat": typeof HomeChatRoute;
-  "/home/experiment": typeof HomeExperimentRoute;
-  "/home/periodicTable": typeof HomePeriodicTableRoute;
-  "/identificação/recuperarsenha": typeof IdentificaoRecuperarsenhaRoute;
-  "/identificação/registro": typeof IdentificaoRegistroRoute;
-  "/home/": typeof HomeIndexRoute;
-  "/identificação/": typeof IdentificaoIndexRoute;
+  __root__: typeof rootRoute
+  '/': typeof IndexRoute
+  '/normas': typeof NormasRoute
+  '/sobre': typeof SobreRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/recuperarsenha': typeof AuthRecuperarsenhaRoute
+  '/auth/registro': typeof AuthRegistroRoute
+  '/home/chat': typeof HomeChatRoute
+  '/home/periodicTable': typeof HomePeriodicTableRoute
+  '/auth/': typeof AuthIndexRoute
+  '/home/': typeof HomeIndexRoute
+  '/home/experimentos/cromatografia': typeof HomeExperimentosCromatografiaRoute
+  '/home/experimentos/densidadeLiquidos': typeof HomeExperimentosDensidadeLiquidosRoute
+  '/home/experimentos/novo-experimento': typeof HomeExperimentosNovoExperimentoRoute
+  '/home/experimentos/vulcaoBicarbonato': typeof HomeExperimentosVulcaoBicarbonatoRoute
+  '/home/experimentos/': typeof HomeExperimentosIndexRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
+  fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | "/"
-    | "/normas"
-    | "/sobre"
-    | "/experimentos/Cromatografia"
-    | "/experimentos/DensidadeLiquidos"
-    | "/experimentos/VulcaoBicarbonato"
-    | "/home/chat"
-    | "/home/experiment"
-    | "/home/periodicTable"
-    | "/identificação/recuperarsenha"
-    | "/identificação/registro"
-    | "/home"
-    | "/identificação";
-  fileRoutesByTo: FileRoutesByTo;
+    | '/'
+    | '/normas'
+    | '/sobre'
+    | '/auth/login'
+    | '/auth/recuperarsenha'
+    | '/auth/registro'
+    | '/home/chat'
+    | '/home/periodicTable'
+    | '/auth'
+    | '/home'
+    | '/home/experimentos/cromatografia'
+    | '/home/experimentos/densidadeLiquidos'
+    | '/home/experimentos/novo-experimento'
+    | '/home/experimentos/vulcaoBicarbonato'
+    | '/home/experimentos'
+  fileRoutesByTo: FileRoutesByTo
   to:
-    | "/"
-    | "/normas"
-    | "/sobre"
-    | "/experimentos/Cromatografia"
-    | "/experimentos/DensidadeLiquidos"
-    | "/experimentos/VulcaoBicarbonato"
-    | "/home/chat"
-    | "/home/experiment"
-    | "/home/periodicTable"
-    | "/identificação/recuperarsenha"
-    | "/identificação/registro"
-    | "/home"
-    | "/identificação";
+    | '/'
+    | '/normas'
+    | '/sobre'
+    | '/auth/login'
+    | '/auth/recuperarsenha'
+    | '/auth/registro'
+    | '/home/chat'
+    | '/home/periodicTable'
+    | '/auth'
+    | '/home'
+    | '/home/experimentos/cromatografia'
+    | '/home/experimentos/densidadeLiquidos'
+    | '/home/experimentos/novo-experimento'
+    | '/home/experimentos/vulcaoBicarbonato'
+    | '/home/experimentos'
   id:
-    | "__root__"
-    | "/"
-    | "/normas"
-    | "/sobre"
-    | "/experimentos/Cromatografia"
-    | "/experimentos/DensidadeLiquidos"
-    | "/experimentos/VulcaoBicarbonato"
-    | "/home/chat"
-    | "/home/experiment"
-    | "/home/periodicTable"
-    | "/identificação/recuperarsenha"
-    | "/identificação/registro"
-    | "/home/"
-    | "/identificação/";
-  fileRoutesById: FileRoutesById;
+    | '__root__'
+    | '/'
+    | '/normas'
+    | '/sobre'
+    | '/auth/login'
+    | '/auth/recuperarsenha'
+    | '/auth/registro'
+    | '/home/chat'
+    | '/home/periodicTable'
+    | '/auth/'
+    | '/home/'
+    | '/home/experimentos/cromatografia'
+    | '/home/experimentos/densidadeLiquidos'
+    | '/home/experimentos/novo-experimento'
+    | '/home/experimentos/vulcaoBicarbonato'
+    | '/home/experimentos/'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  NormasRoute: typeof NormasRoute;
-  SobreRoute: typeof SobreRoute;
-  ExperimentosCromatografiaRoute: typeof ExperimentosCromatografiaRoute;
-  ExperimentosDensidadeLiquidosRoute: typeof ExperimentosDensidadeLiquidosRoute;
-  ExperimentosVulcaoBicarbonatoRoute: typeof ExperimentosVulcaoBicarbonatoRoute;
-  HomeChatRoute: typeof HomeChatRoute;
-  HomeExperimentRoute: typeof HomeExperimentRoute;
-  HomePeriodicTableRoute: typeof HomePeriodicTableRoute;
-  IdentificaoRecuperarsenhaRoute: typeof IdentificaoRecuperarsenhaRoute;
-  IdentificaoRegistroRoute: typeof IdentificaoRegistroRoute;
-  HomeIndexRoute: typeof HomeIndexRoute;
-  IdentificaoIndexRoute: typeof IdentificaoIndexRoute;
+  IndexRoute: typeof IndexRoute
+  NormasRoute: typeof NormasRoute
+  SobreRoute: typeof SobreRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthRecuperarsenhaRoute: typeof AuthRecuperarsenhaRoute
+  AuthRegistroRoute: typeof AuthRegistroRoute
+  HomeChatRoute: typeof HomeChatRoute
+  HomePeriodicTableRoute: typeof HomePeriodicTableRoute
+  AuthIndexRoute: typeof AuthIndexRoute
+  HomeIndexRoute: typeof HomeIndexRoute
+  HomeExperimentosCromatografiaRoute: typeof HomeExperimentosCromatografiaRoute
+  HomeExperimentosDensidadeLiquidosRoute: typeof HomeExperimentosDensidadeLiquidosRoute
+  HomeExperimentosNovoExperimentoRoute: typeof HomeExperimentosNovoExperimentoRoute
+  HomeExperimentosVulcaoBicarbonatoRoute: typeof HomeExperimentosVulcaoBicarbonatoRoute
+  HomeExperimentosIndexRoute: typeof HomeExperimentosIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   NormasRoute: NormasRoute,
   SobreRoute: SobreRoute,
-  ExperimentosCromatografiaRoute: ExperimentosCromatografiaRoute,
-  ExperimentosDensidadeLiquidosRoute: ExperimentosDensidadeLiquidosRoute,
-  ExperimentosVulcaoBicarbonatoRoute: ExperimentosVulcaoBicarbonatoRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthRecuperarsenhaRoute: AuthRecuperarsenhaRoute,
+  AuthRegistroRoute: AuthRegistroRoute,
   HomeChatRoute: HomeChatRoute,
-  HomeExperimentRoute: HomeExperimentRoute,
   HomePeriodicTableRoute: HomePeriodicTableRoute,
-  IdentificaoRecuperarsenhaRoute: IdentificaoRecuperarsenhaRoute,
-  IdentificaoRegistroRoute: IdentificaoRegistroRoute,
+  AuthIndexRoute: AuthIndexRoute,
   HomeIndexRoute: HomeIndexRoute,
-  IdentificaoIndexRoute: IdentificaoIndexRoute,
-};
+  HomeExperimentosCromatografiaRoute: HomeExperimentosCromatografiaRoute,
+  HomeExperimentosDensidadeLiquidosRoute:
+    HomeExperimentosDensidadeLiquidosRoute,
+  HomeExperimentosNovoExperimentoRoute: HomeExperimentosNovoExperimentoRoute,
+  HomeExperimentosVulcaoBicarbonatoRoute:
+    HomeExperimentosVulcaoBicarbonatoRoute,
+  HomeExperimentosIndexRoute: HomeExperimentosIndexRoute,
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -350,16 +398,18 @@ export const routeTree = rootRoute
         "/",
         "/normas",
         "/sobre",
-        "/experimentos/Cromatografia",
-        "/experimentos/DensidadeLiquidos",
-        "/experimentos/VulcaoBicarbonato",
+        "/auth/login",
+        "/auth/recuperarsenha",
+        "/auth/registro",
         "/home/chat",
-        "/home/experiment",
         "/home/periodicTable",
-        "/identificação/recuperarsenha",
-        "/identificação/registro",
+        "/auth/",
         "/home/",
-        "/identificação/"
+        "/home/experimentos/cromatografia",
+        "/home/experimentos/densidadeLiquidos",
+        "/home/experimentos/novo-experimento",
+        "/home/experimentos/vulcaoBicarbonato",
+        "/home/experimentos/"
       ]
     },
     "/": {
@@ -371,35 +421,41 @@ export const routeTree = rootRoute
     "/sobre": {
       "filePath": "sobre.tsx"
     },
-    "/experimentos/Cromatografia": {
-      "filePath": "experimentos/Cromatografia.tsx"
+    "/auth/login": {
+      "filePath": "auth/login.tsx"
     },
-    "/experimentos/DensidadeLiquidos": {
-      "filePath": "experimentos/DensidadeLiquidos.tsx"
+    "/auth/recuperarsenha": {
+      "filePath": "auth/recuperarsenha.tsx"
     },
-    "/experimentos/VulcaoBicarbonato": {
-      "filePath": "experimentos/VulcaoBicarbonato.tsx"
+    "/auth/registro": {
+      "filePath": "auth/registro.tsx"
     },
     "/home/chat": {
       "filePath": "home/chat.tsx"
     },
-    "/home/experiment": {
-      "filePath": "home/experiment.tsx"
-    },
     "/home/periodicTable": {
       "filePath": "home/periodicTable.tsx"
     },
-    "/identificação/recuperarsenha": {
-      "filePath": "identificação/recuperarsenha.tsx"
-    },
-    "/identificação/registro": {
-      "filePath": "identificação/registro.tsx"
+    "/auth/": {
+      "filePath": "auth/index.tsx"
     },
     "/home/": {
       "filePath": "home/index.tsx"
     },
-    "/identificação/": {
-      "filePath": "identificação/index.tsx"
+    "/home/experimentos/cromatografia": {
+      "filePath": "home/experimentos/cromatografia.tsx"
+    },
+    "/home/experimentos/densidadeLiquidos": {
+      "filePath": "home/experimentos/densidadeLiquidos.tsx"
+    },
+    "/home/experimentos/novo-experimento": {
+      "filePath": "home/experimentos/novo-experimento.tsx"
+    },
+    "/home/experimentos/vulcaoBicarbonato": {
+      "filePath": "home/experimentos/vulcaoBicarbonato.tsx"
+    },
+    "/home/experimentos/": {
+      "filePath": "home/experimentos/index.tsx"
     }
   }
 }

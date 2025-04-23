@@ -1,9 +1,0 @@
-export { default as Home } from "./home";
-export { default as About } from "./sobre";
-export { default as Auth } from "./auth";
-export { default as Register } from "./auth/registro";
-export { default as Chat } from "./home/chat";
-export { default as Experiment } from "./home/experiment";
-export { default as PeriodicTable } from "./periodicTable";
-export { default as Terms } from "./normas";
-export { default as Dashboard } from "./home";

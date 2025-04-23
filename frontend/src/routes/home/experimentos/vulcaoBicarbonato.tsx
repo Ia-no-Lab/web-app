@@ -1,6 +1,3 @@
-import { Button } from "@/src/components/ui/button"
-import React from "react";
-
 
 const VulcaoBicarbonato = () => {
   return (

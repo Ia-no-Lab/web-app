@@ -32,7 +32,7 @@ export default function Header() {
           </Link>
           <Button
             className="bg-fern-green text-cream hover:bg-tea-green hover:text-eerie-black"
-            onClick={() => navigate({ to: "/auth" })}
+            onClick={() => navigate("/auth" as any)}
           >
             Testar
           </Button>

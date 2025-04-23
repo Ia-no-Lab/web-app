@@ -1,7 +1,6 @@
-import React from "react";
 import { useEffect, useState } from "react";
-import api from "../services/api";
-import { Element } from "../types/Element";
+import api from "@/services/api";
+import type { Element } from "@/types/Element";
 
 const PeriodicTable = () => {
   const [elements, setElements] = useState<Element[]>([]);

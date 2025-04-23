@@ -1,3 +1,5 @@
+import * as React from "react";
+import { createFileRoute } from "@tanstack/react-router";
 import {
   Card,
   CardContent,
@@ -11,7 +13,11 @@ import { LuArrowRight, LuBot, LuAtom } from "react-icons/lu";
 import { useNavigate } from "@tanstack/react-router";
 import smallLogo from "@/assets/small-logo.png";
 
-const Home = () => {
+export const Route = createFileRoute("/")({
+  component: Home,
+});
+
+function Home() {
   const navigate = useNavigate();
 
   const cards = [
@@ -95,6 +101,4 @@ const Home = () => {
       </div>
     </div>
   );
-};
-
-export default Home;
+}

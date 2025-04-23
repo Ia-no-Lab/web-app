@@ -1,13 +1,7 @@
-import React from "react";
 import { useNavigate } from "@tanstack/react-router";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/src/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Flame, Beaker, Palette } from "lucide-react";
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 const experimentosPopulares = [
   {
@@ -65,7 +59,7 @@ const Experiment = () => {
 
       <div className="mt-16 flex justify-center">
         <Button
-          onClick={() => navigate({ to: "/home/experimentos" })}
+          onClick={() => navigate("/home/experimentos/novo-experimento" as any)}
           className="h-14 w-64 text-lg font-semibold bg-[hsl(var(--fern-green))] text-[hsl(var(--cream))] hover:bg-[hsl(var(--tea-green))] hover:text-[hsl(var(--eerie-black))]"
         >
           Descobrir experimentos

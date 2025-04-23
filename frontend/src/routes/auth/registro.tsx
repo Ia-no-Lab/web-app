@@ -1,6 +1,5 @@
 
-import React from "react";
-import { RegisterForm } from "@/src/components/register-form.tsx"
+import { RegisterForm } from "@/components/register-form.tsx"
 
 const Register = () => {
     return (
