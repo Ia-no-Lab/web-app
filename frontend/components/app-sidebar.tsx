@@ -1,17 +1,19 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link";
+import Image from "next/image";
+import smallLogo from "@/public/small-logo.png"
 import {
   BookOpen,
   Bot,
-  Command,
   Frame,
   LifeBuoy,
   Map,
   PieChart,
   Send,
   Settings2,
-  SquareTerminal,
+  FlaskConical
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -36,86 +38,39 @@ const data = {
   },
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
+      title: "Experimentos",
+      url: "/home/experimentos",
+      icon: FlaskConical,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "Histórico",
           url: "#",
         },
         {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
+          title: "Salvos",
           url: "#",
         },
       ],
     },
     {
-      title: "Models",
-      url: "#",
+      title: "Chats",
+      url: "/home/chat",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
+          title: "Histórico",
           url: "#",
         },
       ],
     },
     {
-      title: "Documentation",
-      url: "#",
+      title: "Tabela Periodica",
+      url: "home/tabela-periodica",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
+          title: "Favoritos",
           url: "#",
         },
       ],
@@ -123,7 +78,7 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Support",
+      title: "Supporte",
       url: "#",
       icon: LifeBuoy,
     },
@@ -131,23 +86,6 @@ const data = {
       title: "Feedback",
       url: "#",
       icon: Send,
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
 }
@@ -158,23 +96,21 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Command className="size-4" />
-                </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Acme Inc</span>
-                  <span className="truncate text-xs">Enterprise</span>
-                </div>
-              </a>
-            </SidebarMenuButton>
+            <div className="flex items-center text-sm leading-tight">
+              <Link href="/home" className="mr-2 flex items-center gap-2">
+                <Image
+                  src={smallLogo}
+                  alt="Logo"
+                  className="h-5 w-auto object-contain"
+                />
+                <span className="truncate font-medium">Ia no Lab</span>
+              </Link>
+            </div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
