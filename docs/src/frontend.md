@@ -7,12 +7,12 @@ O frontend deste projeto é desenvolvido com React e TypeScript, utilizando o Rs
 ```mermaid
     graph TD
       root((Frontend))
-      root --> react[React 19]
+      root --> next[NextJS 15]
       react --> hooks[Hooks]
       react --> comp[Componentes]
 
       root --> ts[TypeScript]
-      root --> router[TanStack Router]
+      root --> router[Next router]
       root --> tailwind[Tailwind CSS]
 
       root --> radix[Radix UI]
