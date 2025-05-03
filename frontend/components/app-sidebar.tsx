@@ -66,7 +66,7 @@ const data = {
     },
     {
       title: "Tabela Periodica",
-      url: "home/tabela-periodica",
+      url: "/home/tabela-periodica",
       icon: BookOpen,
       items: [
         {
