@@ -6,10 +6,10 @@ export default function Normas() {
         Ao criar uma conta, você automaticamente aceita as normas abaixo:
       </h2>
       <ul className="list-disc list-inside space-y-3 text-lg">
-        <li>Utilize os recursos de forma ética e respeitosa.</li>
-        <li>Não compartilhe dados sensíveis ou pessoais.</li>
-        <li>Respeite os termos de uso ao interagir com a IA.</li>
-        <li>Relate qualquer comportamento inadequado ou bugs.</li>
+        <li>Utilizar os recursos de forma ética e respeitosa.</li>
+        <li>Não compartilhar dados sensíveis ou pessoais.</li>
+        <li>Respeitar os termos de uso ao interagir com a IA.</li>
+        <li>Relatar qualquer comportamento inadequado ou bugs.</li>
       </ul>
     </div>
   );

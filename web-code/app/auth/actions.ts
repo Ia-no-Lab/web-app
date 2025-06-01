@@ -1,24 +1,14 @@
 'use server'
 
-import { redirect } from 'next/navigation'
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@/utils/supabase/client'
 
 export async function signInWithGoogle() {
-  const supabase = await createClient()
+  const supabase = createClient()
 
-  const { data, error } = await supabase.auth.signInWithOAuth({
+  await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
       redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
     },
   })
-
-  if (error) {
-    console.error("Erro ao redirecionar para o Google:", error.message)
-    redirect("/erro")
-  }
-
-  if (data?.url) {
-    redirect(data.url)
-  }
 }
