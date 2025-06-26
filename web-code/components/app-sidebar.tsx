@@ -31,7 +31,7 @@ const data = {
       title: "Chats",
       url: "/home/chat",
       iconKey: "bot",
-      items: [{ title: "Histórico", url: "#" }],
+      items: [{ title: "Histórico", url: "/home/chat/historico" }],
     },
     {
       title: "Tabela Periodica",
