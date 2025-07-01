@@ -1,9 +1,13 @@
-import Chat from '@/components/Chat'
+import ChatProvider from '@/components/chat/ChatProvider'
 
 interface PageProps {
   params: { chatId: string }
 }
 
-export default function ChatPage({ params }: PageProps) {
-  return <Chat chatId={params.chatId} />
+export default async function ChatPage({ params }: PageProps) {
+  // aqui o await "resolve" params
+  const { chatId } = await params
+
+  return <ChatProvider chatId={chatId} />
 }
+

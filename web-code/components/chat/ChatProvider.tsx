@@ -1,94 +1,117 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useChat, type Message } from '@ai-sdk/react' // importando Message do SDK
 import { useRouter } from 'next/navigation'
-import { useChat } from '@ai-sdk/react'
-import ReactMarkdown from 'react-markdown'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { cn } from '@/lib/utils'
 import { Send } from 'lucide-react'
+import { createClient } from '@/utils/supabase/client'
+import ReactMarkdown from 'react-markdown'
+import { v4 as uuidv4 } from 'uuid'
+import { ChatHeader } from './ChatHeader'
 
-interface ChatProps {
-  chatId: string | null
+interface ChatProviderProps {
+  chatId: string
 }
 
-export default function Chat({ chatId }: ChatProps) {
+export default function ChatProvider({ chatId }: ChatProviderProps) {
   const router = useRouter()
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [token, setToken] = useState<string | null>(null)
   const [currentChatId, setCurrentChatId] = useState(chatId)
 
   const {
     messages,
     input,
-    setInput,
     handleInputChange,
     handleSubmit: handleChatSubmit,
-    isLoading,
     setMessages,
+    isLoading,
+    setInput,
   } = useChat()
 
-  const scrollRef = useRef<HTMLDivElement>(null)
-
+  // Scroll suave ao atualizar mensagens
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
+  // Pega token da sessão no supabase client (rodar só 1x)
   useEffect(() => {
-    if (!currentChatId) return
+    async function fetchSessionToken() {
+      const supabase = await createClient()
+      const { data } = await supabase.auth.getSession()
+      setToken(data.session?.access_token ?? null)
+    }
+    fetchSessionToken()
+  }, [])
 
-    async function loadChat() {
+  // Quando trocar chatId ou token, busca mensagens do chat salvo
+  useEffect(() => {
+    if (!currentChatId || !token) return
+
+    const fetchChat = async () => {
       try {
-        const res = await fetch(`/api/chats/${currentChatId}`)
-        if (!res.ok) throw new Error('Falha ao carregar chat')
+        const res = await fetch(`/api/chat/${currentChatId}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+
+        if (!res.ok) {
+          console.error('Erro ao carregar chat')
+          setMessages([]) // limpa mensagens para evitar UI bug
+          return
+        }
+
         const data = await res.json()
-        setMessages(data.messages || [])
-      } catch (e) {
-        console.error(e)
+        setMessages(data.chat?.messages ?? [])
+      } catch (err) {
+        console.error('Erro ao buscar chat:', err)
       }
     }
-    loadChat()
-  }, [currentChatId])
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (!input.trim()) return
+    fetchChat()
+  }, [currentChatId, token, setMessages])
 
-    try {
-      const payload = {
-        id: currentChatId || undefined,
-        messages: [...messages, { role: 'user', content: input }],
-        title: !currentChatId ? `Chat em ${new Date().toLocaleString('pt-BR')}` : undefined,
-      }
+  // Envio de mensagem (com controle de estado e salvamento)
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault()
+  if (!input.trim() || !token) return
 
-      const res = await fetch('/api/chats', {
-        method: currentChatId ? 'PUT' : 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
+  setInput('') // Limpa input antes do envio
 
-      if (!res.ok) {
-        const errorText = await res.text()
-        throw new Error(`Erro ao salvar chat: ${errorText || 'Resposta vazia'}`)
-      }
+  await handleChatSubmit(e) // deixa o hook adicionar mensagens internamente
 
-      const data = await res.json()
+  // Espera um tick para garantir que o estado messages está atualizado
+  await new Promise(resolve => setTimeout(resolve, 0))
 
-      if (data?.messages) setMessages(data.messages)
+  // Agora salva as mensagens atuais, que já incluem usuário e IA
+  const res = await fetch('/api/chat/save', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      chatId: currentChatId,
+      messages: messages,
+      title: currentChatId ? undefined : `Chat em ${new Date().toLocaleString('pt-BR')}`,
+    }),
+  })
 
-      if (data?.id && !currentChatId) {
-        setCurrentChatId(data.id)
-        router.replace(`/chat/${data.id}`)
-      }
+  const data = await res.json()
 
-      await handleChatSubmit(e)
-    } catch (err) {
-      console.error(err)
-    }
+  // Se criou um novo chat, atualiza ID e rota
+  if (!currentChatId && data.chatId) {
+    setCurrentChatId(data.chatId)
+    router.replace(`/home/chat/${data.chatId}`)
   }
+}
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center py-6">
+      <ChatHeader/>
       <div className="flex flex-col w-full max-w-6xl h-[90vh]">
         <ScrollArea className="flex-1 px-6 py-6 space-y-4 text-black overflow-y-auto">
           {messages.length === 0 ? (
@@ -97,10 +120,10 @@ export default function Chat({ chatId }: ChatProps) {
               <p className="text-sm text-muted-foreground">Digite uma mensagem para começar ou escolha uma sugestão.</p>
             </div>
           ) : (
-            messages.map((message, index) => {
+            messages.map((message) => {
               const isUser = message.role === 'user'
               return (
-                <div key={message.id || index} className={cn('flex', isUser ? 'justify-end' : 'justify-start')}>
+                <div key={message.id} className={cn('flex', isUser ? 'justify-end' : 'justify-start')}>
                   <div
                     className={cn(
                       'rounded-xl px-5 py-3 text-sm leading-relaxed whitespace-pre-wrap break-words max-w-prose',
