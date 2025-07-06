@@ -5,9 +5,7 @@ interface PageProps {
 }
 
 export default async function ChatPage({ params }: PageProps) {
-  // aqui o await "resolve" params
-  const { chatId } = await params
+  const { chatId } = params
 
   return <ChatProvider chatId={chatId} />
 }
-
