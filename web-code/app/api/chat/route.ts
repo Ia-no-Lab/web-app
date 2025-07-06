@@ -3,6 +3,7 @@ import { streamText } from 'ai';
 import { NextRequest } from 'next/server';
 
 export const maxDuration = 30; 
+export const runtime = 'edge'
 
 export async function POST(req: NextRequest) {
   const { messages } = await req.json();

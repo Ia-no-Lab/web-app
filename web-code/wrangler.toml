@@ -1,0 +1,12 @@
+name = "web-app"
+compatibility_date = "2025-07-01"
+pages_build_output_dir = ".vercel/output/static"
+
+[build]
+command = "npm run pages:build"
+
+[site]
+bucket = ".vercel/output/static"
+
+[env.production]
+compatibility_flags = ["nodejs_compat"]
