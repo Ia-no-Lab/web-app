@@ -4,7 +4,7 @@ pages_build_output_dir = ".vercel/output"
 bucket = ".vercel/output"
 
 [build]
-command = "npm run pages:build"
+command = "pnpm run pages:build"
 
 [site]
 bucket = ".vercel/output/static"
