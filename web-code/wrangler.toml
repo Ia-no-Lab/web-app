@@ -10,3 +10,6 @@ bucket = ".vercel/output/static"
 
 [env.production]
 compatibility_flags = ["nodejs_compat"]
+
+[observability.logs]
+enabled = true
