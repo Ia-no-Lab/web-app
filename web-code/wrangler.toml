@@ -1,5 +1,5 @@
 name = "web-app"
-compatibility_date = "2025-07-01"
+compatibility_date = "2025-08-04"
 pages_build_output_dir = ".vercel/output"
 
 [env.production]
