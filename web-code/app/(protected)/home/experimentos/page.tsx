@@ -23,6 +23,8 @@ const experimentosPopulares = [
   },
 ];
 
+export const runtime = 'edge';
+
 export default function Experimentos() {
 
   const router = useRouter();

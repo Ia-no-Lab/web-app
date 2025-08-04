@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 export default function DensidadeLiquidos() {
   return (
     <div className="p-10 max-w-4xl mx-auto text-eerie-black">

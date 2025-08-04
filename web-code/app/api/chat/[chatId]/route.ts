@@ -1,6 +1,8 @@
 import { createClient } from '@/utils/supabase/server'
 import { type NextRequest, NextResponse } from 'next/server'
 
+export const runtime = 'edge';
+
 // Use esta assinatura alternativa
 export async function GET(request: NextRequest) {
   try {

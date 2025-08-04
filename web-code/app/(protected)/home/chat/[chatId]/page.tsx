@@ -4,6 +4,8 @@ type PageProps = {
   params: Promise<{ chatId: string }>
 }
 
+export const runtime = 'edge';
+
 export default async function ChatPage({ params }: PageProps) {
   const resolvedParams = await params;
   const { chatId } = resolvedParams;

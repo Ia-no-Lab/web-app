@@ -13,6 +13,9 @@ interface Chat {
   created_at: string
 }
 
+export const runtime = 'edge';
+
+
 export default function HistoricoChatPage() {
   const [chats, setChats] = useState<Chat[]>([])
   const [editingId, setEditingId] = useState<string | null>(null)

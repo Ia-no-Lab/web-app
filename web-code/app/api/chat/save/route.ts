@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import supabaseAdmin from '@/lib/supabaseAdmin'
 
+export const runtime = 'edge';
+
 export async function POST(req: NextRequest) {
   try {
     // Extrai o token do header Authorization
