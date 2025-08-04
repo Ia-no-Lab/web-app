@@ -1,16 +1,6 @@
 name = "web-app"
 compatibility_date = "2025-07-01"
 pages_build_output_dir = ".vercel/output"
-bucket = ".vercel/output"
-
-[build]
-command = "pnpm run pages:build"
-
-[site]
-bucket = ".vercel/output/static"
 
 [env.production]
 compatibility_flags = ["nodejs_compat"]
-
-[observability.logs]
-enabled = true
