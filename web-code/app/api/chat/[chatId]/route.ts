@@ -1,29 +1,41 @@
 import { createClient } from '@/utils/supabase/server'
-import { cookies } from 'next/headers'
-import { NextResponse } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 
-export async function GET(_: Request, { params }: { params: { chatId: string } }) {
-  const supabase = await createClient()  // << aqui o await
+// Use esta assinatura alternativa
+export async function GET(request: NextRequest) {
+  try {
+    // Extrair chatId da URL
+    const chatId = request.nextUrl.pathname.split('/').pop()
+    
+    if (!chatId) {
+      return NextResponse.json({ error: 'Chat ID não fornecido' }, { status: 400 })
+    }
 
-  const { data: { user } } = await supabase.auth.getUser()
+    const supabase = await createClient()
+    const { data: { user }, error: authError } = await supabase.auth.getUser()
 
-  if (!user) {
-    return NextResponse.json({ error: 'Não autorizado' }, { status: 401 })
+    if (authError || !user) {
+      return NextResponse.json({ error: 'Não autorizado' }, { status: 401 })
+    }
+
+    const { data: chat, error: dbError } = await supabase
+      .from('chats')
+      .select('messages')
+      .eq('id', chatId)
+      .eq('user_id', user.id)
+      .maybeSingle()
+
+    if (dbError) {
+      console.error('Erro ao buscar chat:', dbError)
+      return NextResponse.json({ error: 'Erro ao buscar chat' }, { status: 500 })
+    }
+
+    return NextResponse.json({ chat })
+  } catch (error) {
+    console.error('Erro inesperado:', error)
+    return NextResponse.json(
+      { error: 'Erro interno do servidor' }, 
+      { status: 500 }
+    )
   }
-
-  const { chatId } = await params
-
-  const { data: chat, error } = await supabase
-    .from('chats')
-    .select('messages')
-    .eq('id', chatId)
-    .eq('user_id', user.id)
-    .maybeSingle()
-
-  if (error) {
-    console.error('Erro ao buscar chat:', error)
-    return NextResponse.json({ error: 'Erro ao buscar chat' }, { status: 500 })
-  }
-
-  return NextResponse.json({ chat })
 }

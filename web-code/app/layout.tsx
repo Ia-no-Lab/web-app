@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,7 +9,7 @@ const inter = Inter({
 });
 
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Ia no Lab",
   description: "Simplificando a ciência",
 };
